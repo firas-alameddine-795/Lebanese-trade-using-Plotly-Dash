@@ -5,11 +5,11 @@ Despite the fact that the free fall of the Lebanese currency exchange rate has h
 
 The goal of this capstone project is to support knowledge acquired throughout my MSBA by getting hand-on work experience with public data. The choice of such a topic is intentional: For it helps me hone my newly acquired skills in data analytics. Accordingly, the progression of my capstone will be divided into the following milestones:
 
-- Milestone 1 - Use and analyze data in Lebanese Industry and Commerce: In the First part, the focus will be on the collection of Lebanese Customs data, as well as international trade data available via official platforms, namely World Bank, WTO and WCO. The aim is to add my contribution in terms of reporting methodology, metrics, evaluation, use of visualization, coding automation and recommendations given.
+- Milestone 1 - Use and analyze data in Lebanese Industry and Commerce:<br>In the First part, the focus will be on the collection of Lebanese Customs data, as well as international trade data available via official platforms, namely World Bank, WTO and WCO. The aim is to add my contribution in terms of reporting methodology, metrics, evaluation, use of visualization, coding automation and recommendations given.
 
-- Milestone 2 - Data Overview: The second part is more informative and will go through an overview of the data tools and sources, highlighting both strong and weak points. Tools to be used: Python (main work), Tableau (investigative work).
+- Milestone 2 - Data Overview:<br>The second part is more informative and will go through an overview of the data tools and sources, highlighting both strong and weak points. Tools to be used: Python (main work), Tableau (investigative work).
 
-- Milestone 3 - Data Driven Answers: Finally, the third part is meant to provide answers for the following questions:<br>
+- Milestone 3 - Data Driven Answers:<br>Finally, the third part is meant to provide answers for the following questions:<br>
 1- What are the main countries Lebanon is dealing with for each import/export category? How did it evolve with time from 2011 to 2019?<br>
 2- What are the export verticals that are growing in Lebanon and what are the ones shrinking?<br>
 3- How does our pricing per ton for exports compare with the one from other countries?<br>
