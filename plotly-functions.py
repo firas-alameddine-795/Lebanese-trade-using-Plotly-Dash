@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Thu Feb  8 23:32:05 2024
 
@@ -182,9 +181,6 @@ def build_diff_treemap_products(value, flow, dataset):
                       title_font_color = 'black')  
     return fig
 
-#Example
-#build_diff_treemap_products([2014,2019], 'Export')
-
 # %% Function 5: Create a treemap for countries: Growth Change
 def build_diff_treemap_countries(value, flow, dataset):
     y1 = value[0]
@@ -230,6 +226,3 @@ def build_diff_treemap_countries(value, flow, dataset):
                       title_font_family = 'Microsoft Yahei UI',
                       title_font_color = 'black')  
     return fig
-
-#Example
-#build_diff_treemap_countries([2014,2019],'Export')
