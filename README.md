@@ -8,3 +8,6 @@ Packages:
 - Data manipulation: Pandas.
 - Data visualization: Matplotlib, Plotly
 - Dashboard creation: Dash Open Source
+
+Tableau version of the dashboard:
+https://public.tableau.com/app/profile/firas.alameddine/viz/LBNDashboard-Aug72020/Dashboard1
