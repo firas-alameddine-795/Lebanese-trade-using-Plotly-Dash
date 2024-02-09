@@ -9,12 +9,12 @@ The goal of this capstone project is to support knowledge acquired throughout my
 
 - Milestone 2: Data Overview: The second part is more informative and will go through an overview of the data tools and sources, highlighting both strong and weak points. Tools to be used: Python (main work), Tableau (investigative work).
 
-- Milestone 3: Data Driven Answers: Finally, the third part is meant to provide answers for the following questions:
-1- What are the main countries Lebanon is dealing with for each import/export category? How did it evolve with time from 2011 to 2019?
-2- What are the export verticals that are growing in Lebanon and what are the ones shrinking?
-3- How does our pricing per ton for exports compare with the one from other countries?
-4- Is the pricing per ton for our imports competitive? Are neighboring countries (such as Jordan) getting better deals?
-5- What are the export verticals that exist in Lebanon and that have a potential for growth as other comparable countries were able to grow in the past three years?
+- Milestone 3: Data Driven Answers: Finally, the third part is meant to provide answers for the following questions:<br>
+1- What are the main countries Lebanon is dealing with for each import/export category? How did it evolve with time from 2011 to 2019?<br>
+2- What are the export verticals that are growing in Lebanon and what are the ones shrinking?<br>
+3- How does our pricing per ton for exports compare with the one from other countries?<br>
+4- Is the pricing per ton for our imports competitive? Are neighboring countries (such as Jordan) getting better deals?<br>
+5- What are the export verticals that exist in Lebanon and that have a potential for growth as other comparable countries were able to grow in the past three years?<br>
 
 Programming language: Python.
 Packages:
