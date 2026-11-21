@@ -1,0 +1,11 @@
+
+*.xls
+*.xlsx
+*.csv
+*.png
+
+# dashboard logos of the Kedro version
+!kedro_project/src/leb_trade/dashboard/assets/*.png
+
+.DS_Store
+!assets/*.png

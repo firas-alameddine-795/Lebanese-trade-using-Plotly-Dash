@@ -1,0 +1,102 @@
+# Which WCO conversion table applies to which years (inclusive).
+hs_conversion_periods:
+  - {start_year: 2011, end_year: 2011, table: hs2007}
+  - {start_year: 2012, end_year: 2016, table: hs2012}
+  - {start_year: 2017, end_year: 2019, table: hs2017}
+
+# HS sections (HS1) and the chapters (HS2) each one contains.
+hs_sections:
+  I: [1, 2, 3, 4, 5]
+  II: [6, 7, 8, 9, 10, 11, 12, 13, 14]
+  III: [15]
+  IV: [16, 17, 18, 19, 20, 21, 22, 23, 24]
+  V: [25, 26, 27]
+  VI: [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
+  VII: [39, 40]
+  VIII: [41, 42, 43]
+  IX: [44, 45, 46]
+  X: [47, 48, 49]
+  XI: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+  XII: [64, 65, 66, 67]
+  XIII: [68, 69, 70]
+  XIV: [71]
+  XV: [72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83]
+  XVI: [84, 85]
+  XVII: [86, 87, 88, 89]
+  XVIII: [90, 91, 92]
+  XIX: [93]
+  XX: [94, 95, 96]
+  XXI: [97, 98]
+
+# National (non-international) codes, described manually from the Lebanese Customs website.
+missing_hs6_desc:
+  710820: Monetary Gold
+  980100: Used furniture and household appliances and person
+  980200: Trousseaux of newly-weds and students
+  980300: Samples of no commercial value
+  980400: Occasional giftsand personal dispatches
+  980500: Caskets and coffins containing the body of a deceased
+
+missing_hs4_desc:
+  9801: Used furniture and household appliances and person
+  9802: Trousseaux of newly-weds and students
+  9803: Samples of no commercial value
+  9804: Occasional giftsand personal dispatches
+  9805: Caskets and coffins containing the body of a deceased
+
+fallback_hs2_desc: Used furniture and household appliances and person
+
+regions:
+  # Country-level corrections applied to the region table (checked first).
+  country_overrides:
+    Bahrain: Middle east
+  # Region-level recoding of the region table ("Arab States" -> Africa), except the countries above.
+  region_overrides:
+    Arab States: Africa
+  # Countries absent from the region table.
+  manual_fills:
+    Duty Free-Airport: Misc
+    Falkland Islands: South/Latin America
+    Free Zone: Misc
+    French South Territories: Misc
+    Guinea- Bissau: Africa
+    Heard  Mcdonald Islands: Misc
+    Holy See (Vatican city st: Europe
+    Indian Ocean Territories: Misc
+    Iran, Islamic republic of: Middle east
+    Ivory Coast: Africa
+    Kazakstan: Asia & Pacific
+    Korea,Democ. People's rep: Asia & Pacific
+    Kosovo: Europe
+    Lao People's Dem Republic: Asia & Pacific
+    Lebanon-returned Goods: Misc
+    Libyan Arab Jamahiriya: Africa
+    Misc: Misc
+    Neutral Zone: Misc
+    Northern Mariana islands: Misc
+    Saint kitts & nevis: South/Latin America
+    Serbia & Montenegro: Europe
+    Ship Supplies: Misc
+    Soolmon Islands: Asia & Pacific
+    Svalbard&Jan Mayen: Europe
+    Taiwan, Province of china: Asia & Pacific
+    Tanzania, United Republic: Africa
+    Trinidad & Tobago: South/Latin America
+    Turks&caicos Islands: South/Latin America
+    Viet Nam: Asia & Pacific
+    Virgin Island, U.S: South/Latin America
+    Warehouse: Misc
+    Yugoslavia: Europe
+    Zaire: Africa
+    Christmas island: Misc
+    Cocos Islands: Misc
+    Micronesia,Federation: Misc
+    Palestine terri, Occupied: Middle east
+    Saint Vincent&grenadines: South/Latin America
+    Wallis and  Futuna: Asia & Pacific
+    Pitcairn: Asia & Pacific
+    Saint Pierre & Miquelon: North America
+    East Timor: Asia & Pacific
+    Airline Supplies: Misc
+    Ceuta: Europe
+    Us Minor Outlying Islands: Misc

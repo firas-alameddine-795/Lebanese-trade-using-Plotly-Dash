@@ -1,0 +1,13 @@
+kedro~=1.8.0
+kedro-datasets[pandas-parquetdataset,pandas-exceldataset]
+kedro-viz
+ipython>=8.10
+jupyterlab>=3.0
+notebook
+pandas
+pyarrow
+openpyxl
+xlrd
+plotly
+dash
+dash-bootstrap-components

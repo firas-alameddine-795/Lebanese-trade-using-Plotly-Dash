@@ -1,0 +1,67 @@
+# Lebanese trade 2011-2019 (Kedro)
+
+Kedro version of the MSBA capstone notebook *Lebanese Customs 2011-2019*: a reproducible data
+pipeline plus the interactive Plotly Dash dashboard. The original notebook is
+[`../MSBA-FirasAlameddine.ipynb`](../MSBA-FirasAlameddine.ipynb), kept at the repo root for comparison.
+
+## Pipelines
+
+| Pipeline | Does | Output |
+|---|---|---|
+| `ingestion` | stacks the yearly customs workbooks, reshapes to one row per import/export flow, cleans the numbers | `trade_clean` |
+| `harmonization` | converts HS codes reported under HS 2007 / 2012 / 2017 to HS 1992 using the WCO correlation tables | `trade_hs92` |
+| `enrichment` | derives HS1/HS2/HS4, adds descriptions (OEC) and world regions | `trade_master` |
+
+The three pipelines are built with Kedro's `pipeline()` helper and nested under one namespace, so
+`kedro viz` shows a single collapsed `data_processing` box that expands into `ingestion`,
+`harmonization` and `enrichment` (double-click a box to expand it). Datasets listed in each pipeline's
+`inputs`/`outputs` keep their global names; in-between datasets are prefixed with the namespace.
+Every node is tagged `data_processing` plus its stage name.
+
+The manual lookups from the notebook (HS sections, descriptions of national codes, region fixes,
+which conversion table applies to which year) live in `conf/base/parameters.yml`.
+`kedro run` output (`data/03_primary/trade_master.parquet`) is identical to the notebook's dataframe
+(1,413,972 rows, 15 columns).
+
+## Data
+
+The raw Excel files are not stored in git (see the root `.gitignore`). Put them in
+`data/01_raw/yearly/` (one `lebanese customs yearly HS6 <year>.xlsx` per year) and
+`data/01_raw/reference/` (WCO conversion tables, `products_hs_92.xlsx`, `country to region.xlsx`).
+These are the same files the notebook reads from `data - lebanese customs/`.
+
+## Usage
+
+```bash
+pip install -r requirements.txt   # or: uv pip install -r requirements.txt
+kedro run                          # build data/03_primary/trade_master.parquet (~20 s)
+kedro dashboard --port 4400        # serve the Dash app at http://127.0.0.1:4400
+kedro viz                          # visualise the pipelines
+pytest                             # unit tests
+```
+
+Run part of the pipeline:
+
+```bash
+kedro run --pipeline ingestion                       # or harmonization / enrichment
+kedro run --namespaces data_processing.enrichment    # same, by namespace (reads earlier outputs from disk)
+kedro run --tags data_processing                     # everything in the group
+```
+
+## Layout
+
+```
+conf/base/{catalog,parameters}.yml   datasets and manual lookup tables
+data/01_raw/yearly/                  one .xlsx per year (2011-2019)
+data/01_raw/reference/               WCO conversion tables, OEC product names, country->region
+src/leb_trade/pipelines/             ingestion, harmonization, enrichment (nodes.py + pipeline.py)
+src/leb_trade/dashboard/             figures.py, layout.py, callbacks.py, app.py, assets/
+src/leb_trade/cli.py                 `kedro dashboard`
+```
+
+## Notes
+
+- `DISABLE_HOOKS_FOR_PLUGINS` in `settings.py` switches off `kedro-mlflow`, which is installed in the
+  shared virtualenv but not used here. Remove that line if you want MLflow tracking.
+- The dashboard loads Bootstrap/codepen stylesheets from the internet.
+- `.xls` reference tables are read with `xlrd` (pandas marks that engine as deprecated).

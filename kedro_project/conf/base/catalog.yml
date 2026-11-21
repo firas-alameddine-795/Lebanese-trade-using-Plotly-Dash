@@ -1,0 +1,59 @@
+# ---------- 01_raw ----------
+# One Excel file per year (2011-2019). Read as strings: numbers contain thousand separators.
+raw_yearly_trade:
+  type: partitions.PartitionedDataset
+  path: data/01_raw/yearly
+  filename_suffix: .xlsx
+  dataset:
+    type: pandas.ExcelDataset
+    load_args:
+      dtype: object
+
+# WCO correlation tables: HS 2007 / 2012 / 2017 -> HS 1992
+hs2007_to_hs92:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/reference/HS 2007 to HS 1992 Correlation and conversion tables.xls
+  load_args:
+    engine: xlrd
+
+hs2012_to_hs92:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/reference/HS 2012 to HS 1992 Correlation and conversion tables.xls
+  load_args:
+    engine: xlrd
+
+hs2017_to_hs92:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/reference/HS 2017 to HS 1992 Correlation and conversion tables.xlsx
+
+# OEC product / section names for HS92
+hs92_products:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/reference/products_hs_92.xlsx
+  load_args:
+    sheet_name: products_hs_92
+
+hs92_sections:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/reference/products_hs_92.xlsx
+  load_args:
+    sheet_name: sections
+
+country_regions:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/reference/country to region.xlsx
+
+# ---------- 02_intermediate ----------
+trade_clean:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/trade_clean.parquet
+
+# ---------- 03_primary ----------
+trade_hs92:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/trade_hs92.parquet
+
+# Final table consumed by the dashboard
+trade_master:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/trade_master.parquet
