@@ -1,5 +1,7 @@
 # Lebanese trade using Plotly-Dash
 
+[![CI](https://github.com/firas-alameddine-795/Lebanese-trade-using-Plotly-Dash/actions/workflows/ci.yml/badge.svg)](https://github.com/firas-alameddine-795/Lebanese-trade-using-Plotly-Dash/actions/workflows/ci.yml)
+
 This repository holds the same project in two forms:
 
 | Version | Where | What it is |
