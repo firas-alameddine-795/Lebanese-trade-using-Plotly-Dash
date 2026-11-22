@@ -1,6 +1,7 @@
 
 *.xls
 *.xlsx
+!kedro_project/data/sample/**/*.xlsx
 *.csv
 *.png
 

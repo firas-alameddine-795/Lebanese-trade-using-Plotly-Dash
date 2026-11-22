@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
+    defaults:
+      run:
+        working-directory: kedro_project
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: kedro_project/requirements.txt
+      - run: pip install -r requirements.txt pytest pytest-cov ruff
+      - run: pip install -e . --no-deps
+      - name: Lint (real errors only)
+        run: ruff check . --select E9,F63,F7,F82
+      - name: Unit tests
+        run: pytest -q
+      - name: End-to-end run on the synthetic sample data
+        run: |
+          kedro run --env sample
+          python -c "import pandas as pd; d = pd.read_parquet('data/03_primary/trade_master.parquet'); assert len(d) > 1000 and d.hs6_desc.notna().all(); print(len(d), 'rows')"

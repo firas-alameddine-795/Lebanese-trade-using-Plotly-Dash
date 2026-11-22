@@ -15,6 +15,9 @@ data/**
 # except their sub-folders
 !data/**/
 
+# keep the small synthetic sample dataset (scripts/make_sample_data.py)
+!data/sample/**
+
 # also keep all .gitkeep files
 !.gitkeep
 

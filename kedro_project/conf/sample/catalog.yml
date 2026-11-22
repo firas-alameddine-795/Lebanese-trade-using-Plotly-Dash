@@ -1,0 +1,38 @@
+# `kedro run --env sample` -> synthetic data in data/sample (see scripts/make_sample_data.py).
+# Only the raw inputs change; outputs go to the same data/02_*, data/03_* folders.
+raw_yearly_trade:
+  type: partitions.PartitionedDataset
+  path: data/sample/yearly
+  filename_suffix: .xlsx
+  dataset:
+    type: pandas.ExcelDataset
+    load_args:
+      dtype: object
+
+hs2007_to_hs92:
+  type: pandas.ExcelDataset
+  filepath: data/sample/reference/HS 2007 to HS 1992 Correlation and conversion tables.xlsx
+
+hs2012_to_hs92:
+  type: pandas.ExcelDataset
+  filepath: data/sample/reference/HS 2012 to HS 1992 Correlation and conversion tables.xlsx
+
+hs2017_to_hs92:
+  type: pandas.ExcelDataset
+  filepath: data/sample/reference/HS 2017 to HS 1992 Correlation and conversion tables.xlsx
+
+hs92_products:
+  type: pandas.ExcelDataset
+  filepath: data/sample/reference/products_hs_92.xlsx
+  load_args:
+    sheet_name: products_hs_92
+
+hs92_sections:
+  type: pandas.ExcelDataset
+  filepath: data/sample/reference/products_hs_92.xlsx
+  load_args:
+    sheet_name: sections
+
+country_regions:
+  type: pandas.ExcelDataset
+  filepath: data/sample/reference/country to region.xlsx
