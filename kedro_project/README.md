@@ -35,6 +35,13 @@ kedro run --env sample          # ~1 s, builds data/03_primary/trade_master.parq
 kedro dashboard --port 4400     # Dash app on top of the sample output
 ```
 
+Run these from inside `kedro_project/`, in this order: the first command builds the data, the second
+starts the dashboard, which reads the file the first one wrote. Stop it with `Ctrl+C`.
+
+`--env sample` only swaps the inputs; it writes to the same output files as a real run
+(`data/03_primary/trade_master.parquet`). After trying the sample, run plain `kedro run` again to get the real
+numbers back.
+
 CI (`.github/workflows/ci.yml`) runs the unit tests and this sample run on every push.
 The numbers in the sample are not real trade flows; do not read findings from them.
 

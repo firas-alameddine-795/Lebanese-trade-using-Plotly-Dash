@@ -11,6 +11,22 @@ This repository holds the same project in two forms:
 
 Both read the same raw Excel files, which are not stored in git. See [`kedro_project/README.md`](kedro_project/README.md) to run the pipeline.
 
+## Quick start (no private data needed)
+
+The Kedro version ships a small synthetic dataset, so you can try it right after cloning. Run these in a terminal, **one after the other**:
+
+```bash
+git clone https://github.com/firas-alameddine-795/Lebanese-trade-using-Plotly-Dash.git
+cd Lebanese-trade-using-Plotly-Dash/kedro_project                  # the commands below only work from this folder
+pip install -r requirements.txt && pip install -e . --no-deps
+
+kedro run --env sample          # step 1: build the data (about a second)
+kedro dashboard --port 4400     # step 2: start the dashboard, then open http://127.0.0.1:4400
+```
+
+The numbers in the sample are made up and are not real trade flows. Stop the dashboard with `Ctrl+C`.
+Details, the real-data workflow and the other commands are in [`kedro_project/README.md`](kedro_project/README.md).
+
 ---
 
 Date of submission: September 1, 2020. Date of last update: November 20, 2026.
